@@ -31,4 +31,9 @@ public class Condominio {
     @OneToMany(mappedBy = "condominio")
     private List<Apartamento> apartamentos;
 
+    public Condominio(DadosCadastroCondominio dados){
+        this.nome = dados.nome();
+        this.endereco = new Endereco(dados.endereco());
+    }
+
 }

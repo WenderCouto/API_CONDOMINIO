@@ -32,6 +32,8 @@ public class Apartamento {
 
     private Integer tempoContrato;
 
+    private boolean disponivel; // Nova variável para controlar a disponibilidade
+
     @OneToMany(mappedBy = "apartamento", fetch = FetchType.LAZY)
     private List<Pessoa> inquilinos;
 
