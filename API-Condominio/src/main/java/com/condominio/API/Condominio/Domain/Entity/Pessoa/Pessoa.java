@@ -2,6 +2,7 @@ package com.condominio.API.Condominio.Domain.Entity.Pessoa;
 
 import com.condominio.API.Condominio.Domain.Entity.Apartamento.Apartamento;
 import com.condominio.API.Condominio.Domain.Entity.Condominio.Condominio;
+import com.condominio.API.Condominio.Domain.Entity.Contrato.Contrato;
 import com.condominio.API.Condominio.Domain.Entity.Endereco.Endereco;
 import jakarta.persistence.*;
 import lombok.*;
@@ -40,6 +41,10 @@ public class Pessoa {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "condominio_id")
     private Condominio condominio;
+
+    @ManyToOne
+    @JoinColumn(name = "contrato_id")
+    private Contrato contrato;
 
     public Pessoa(DadosCadastroPessoa dados) {
         this.nome = dados.nome();

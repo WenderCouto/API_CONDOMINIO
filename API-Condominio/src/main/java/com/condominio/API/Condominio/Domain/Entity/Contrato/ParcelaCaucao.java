@@ -1,4 +1,4 @@
-package com.condominio.API.Condominio.Domain.Entity.Apartamento;
+package com.condominio.API.Condominio.Domain.Entity.Contrato;
 
 import jakarta.persistence.Embeddable;
 
