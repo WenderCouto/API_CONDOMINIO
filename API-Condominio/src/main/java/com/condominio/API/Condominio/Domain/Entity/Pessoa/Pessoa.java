@@ -40,4 +40,17 @@ public class Pessoa {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "condominio_id")
     private Condominio condominio;
+
+    public Pessoa(DadosCadastroPessoa dados) {
+        this.nome = dados.nome();
+        this.endereco = dados.endereco();
+        this.cpf = dados.cpf();
+        this.telefone = dados.telefone();
+        this.localDeTrabalho = dados.localDeTrabalho();
+        this.filiação = dados.filiacao();
+        this.dataNascimento = dados.dataNascimento();
+        this.tipo = dados.tipoPessoa();
+    }
+
+
 }

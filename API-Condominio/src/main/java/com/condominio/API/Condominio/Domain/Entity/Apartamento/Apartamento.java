@@ -41,7 +41,15 @@ public class Apartamento {
     @JoinColumn(name = "condominio_id")
     private Condominio condominio;
 
+    public Apartamento(DadosCadastroApartamento dados  ){
+        this.disponivel = true;
+        this.numero = dados.numero();
+        this.unidadeConsumidora = dados.unidadeConsumidora();
+        this.descrição = dados.descricao();
+        this.valor = dados.valor();
 
+
+    }
 
 
 }
