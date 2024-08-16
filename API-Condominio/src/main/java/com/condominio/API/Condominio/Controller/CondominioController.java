@@ -30,6 +30,8 @@ public class CondominioController {
         return ResponseEntity.created(uri).build();
     }
 
+
+
     @GetMapping
     public ResponseEntity<Page<DadosListagemCondominio>> buscarTodos(Pageable paginacao){
         Page<Condominio> condominios = repository.findAll(paginacao);

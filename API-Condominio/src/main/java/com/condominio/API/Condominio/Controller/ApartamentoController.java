@@ -7,6 +7,7 @@ import com.condominio.API.Condominio.Domain.Repository.ApartamentoRepository;
 import com.condominio.API.Condominio.Domain.Repository.CondominioRepository;
 import org.hibernate.query.Page;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,6 +20,7 @@ import java.util.List;
 @RequestMapping("apartamentos")
 public class ApartamentoController {
 
+    @Lazy
     @Autowired //lazyinitializon
     private ApartamentoRepository repository;
 

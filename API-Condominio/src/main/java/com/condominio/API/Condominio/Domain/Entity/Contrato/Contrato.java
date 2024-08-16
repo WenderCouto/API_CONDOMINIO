@@ -36,5 +36,15 @@ public class Contrato {
     @JoinColumn(name = "apartamento_id")
     private Apartamento apartamento;
 
+    public Contrato(DadosCadastroContrato dados, List<Pessoa> idPessoas, Apartamento apartamentoPassado){
+        this.aluguel = dados.aluguel();
+        this.apartamento = apartamentoPassado;
+        this.tempoContrato = dados.tempoContrato();
+        this.dataPagamento = dados.dataPagamento();
+        this.pessoas = idPessoas;
+
+
+    }
+
 
 }
