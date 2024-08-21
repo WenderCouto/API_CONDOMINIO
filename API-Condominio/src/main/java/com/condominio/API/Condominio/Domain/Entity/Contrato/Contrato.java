@@ -36,6 +36,10 @@ public class Contrato {
     @JoinColumn(name = "apartamento_id")
     private Apartamento apartamento;
 
+    //boolean vigente, mudar o relacionamento de um para muitos
+    //pois posso ter varios controatos antigos e o atual deixar como vigente
+    //para poder olhar os contratos anteriores
+
     public Contrato(DadosCadastroContrato dados, List<Pessoa> idPessoas, Apartamento apartamentoPassado){
         this.aluguel = dados.aluguel();
         this.apartamento = apartamentoPassado;
