@@ -46,6 +46,7 @@ public class Contrato {
         this.tempoContrato = dados.tempoContrato();
         this.dataPagamento = dados.dataPagamento();
         this.pessoas = idPessoas;
+        apartamentoPassado.setDisponivel(false);
 
 
     }

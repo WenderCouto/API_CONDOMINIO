@@ -12,5 +12,7 @@ public record DadosCadastroPessoa(
         String filiacao,
         LocalDate dataNascimento,
         Endereco endereco,
-        TipoPessoa tipoPessoa) {
+        TipoPessoa tipoPessoa,
+        Long idApartamento,
+        Long idCondominio) {
 }

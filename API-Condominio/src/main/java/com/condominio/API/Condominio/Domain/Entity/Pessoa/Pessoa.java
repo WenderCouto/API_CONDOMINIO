@@ -46,7 +46,7 @@ public class Pessoa {
     @JoinColumn(name = "contrato_id")
     private Contrato contrato;
 
-    public Pessoa(DadosCadastroPessoa dados) {
+    public Pessoa(DadosCadastroPessoa dados, Apartamento apartamento, Condominio condominio) {
         this.nome = dados.nome();
         this.endereco = dados.endereco();
         this.cpf = dados.cpf();
@@ -55,6 +55,9 @@ public class Pessoa {
         this.filiação = dados.filiacao();
         this.dataNascimento = dados.dataNascimento();
         this.tipo = dados.tipoPessoa();
+        this.apartamento = apartamento;
+        this.condominio = condominio;
+
     }
 
 

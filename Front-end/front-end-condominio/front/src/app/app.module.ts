@@ -10,10 +10,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MatListModule } from '@angular/material/list';
 import { HomeComponent } from './home/home.component';
+import { ListarCondominiosComponent } from './listar-condominios/listar-condominios.component';
+import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
+import { ListarApartamentoComponent } from './listar-apartamento/listar-apartamento.component';
 
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent],
+  declarations: [AppComponent, HomeComponent, ListarCondominiosComponent, ListarApartamentoComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -22,10 +25,11 @@ import { HomeComponent } from './home/home.component';
     MatButtonModule,
     MatSidenavModule,
     MatToolbarModule,
-    MatListModule
+    MatListModule,
+    HttpClientModule,
 
   ],
-  providers: [],
+  providers: [provideHttpClient(withFetch())],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

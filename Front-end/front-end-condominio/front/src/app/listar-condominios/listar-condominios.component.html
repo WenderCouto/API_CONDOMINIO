@@ -1,0 +1,18 @@
+<table class="styled-table">
+    <thead>
+        <tr>
+            <th>Nome Condominio</th>
+            <th>Cidade</th>
+            <th>Estado</th>
+            <th>Rua</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr (click)="listarApartamentos()" *ngFor="let condominio of listaCondominio"> <!-- Corrigido para "condominio" -->
+            <td>{{ condominio.nome }}</td>
+            <td>{{ condominio.endereco.cidade }}</td>
+            <td>{{ condominio.endereco.estado }}</td>
+            <td>{{ condominio.endereco.rua }}</td>
+        </tr>
+    </tbody>
+</table>
