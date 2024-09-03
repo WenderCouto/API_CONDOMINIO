@@ -32,6 +32,7 @@ public class Condominio {
     private List<Apartamento> apartamentos;
 
     public Condominio(DadosCadastroCondominio dados){
+
         this.nome = dados.nome();
         this.endereco = new Endereco(dados.endereco());
     }

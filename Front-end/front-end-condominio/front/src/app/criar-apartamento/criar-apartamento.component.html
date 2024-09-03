@@ -1,0 +1,42 @@
+
+
+<div style="display: flex; justify-content: center;">
+  <div style="width: 600px; ">
+
+  <form [formGroup]="formulario">
+    <mat-card style="margin: 20px;">
+      <mat-card-header class="">
+        <h2>Criar Apartamento</h2>
+      </mat-card-header>
+      <mat-card-content style="display: flex; flex-direction: column;" >
+
+    <mat-form-field>
+      <mat-label>Número</mat-label>
+      <input matInput placeholder="Número do Apartamento" formControlName="numero">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Unidade Consumidora</mat-label>
+      <input matInput placeholder="UC" formControlName="unidadeConsumidora">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Descrição do imovel</mat-label>
+      <input matInput placeholder="Descrição" formControlName="descricao">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Valor</mat-label>
+      <input matInput placeholder="Valor" formControlName="valor">
+    </mat-form-field>
+
+    <div style="display: flex; justify-content: space-between; width: 200px;">
+      <button mat-flat-button color="primary" (click)="criarApartamento()">Enviar</button>
+      <button mat-flat-button color="warn">Cancelar</button>
+    </div>
+
+      </mat-card-content>
+    </mat-card>
+  </form>
+  </div>
+</div>

@@ -5,14 +5,16 @@
             <th>Cidade</th>
             <th>Estado</th>
             <th>Rua</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
-        <tr (click)="listarApartamentos()" *ngFor="let condominio of listaCondominio"> <!-- Corrigido para "condominio" -->
+        <tr *ngFor="let condominio of listaCondominio">
             <td>{{ condominio.nome }}</td>
             <td>{{ condominio.endereco.cidade }}</td>
             <td>{{ condominio.endereco.estado }}</td>
             <td>{{ condominio.endereco.rua }}</td>
+            <td><button (click)="listarApartamentos(condominio.id)">aperta</button></td>
         </tr>
     </tbody>
 </table>

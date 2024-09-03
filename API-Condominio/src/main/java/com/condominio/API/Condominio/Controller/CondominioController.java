@@ -35,7 +35,7 @@ public class CondominioController {
     @GetMapping
     public ResponseEntity<Page<DadosListagemCondominio>> buscarTodos(Pageable paginacao){
         Page<Condominio> condominios = repository.findAll(paginacao);
-        Page<DadosListagemCondominio> dtoPage = condominios.map(condominio -> new DadosListagemCondominio(
+        Page<DadosListagemCondominio> dtoPage = condominios.map(condominio -> new DadosListagemCondominio(condominio.getId(),
                 condominio.getNome(),
                 condominio.getEndereco(),
                 condominio.getApartamentos().

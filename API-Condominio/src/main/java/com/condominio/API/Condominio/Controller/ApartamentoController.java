@@ -41,9 +41,9 @@ public class ApartamentoController {
         return ResponseEntity.created(uri).build();
     }
 
-    @GetMapping
-    public List<DadosListagemApartamento> buscarTodos( ){
-        List<Apartamento> apartamentos = repository.findAll();
+    @GetMapping("/{id}")
+    public List<DadosListagemApartamento> buscarTodos(@PathVariable Long id ){
+        List<Apartamento> apartamentos = repository.findWhereIdCondominio(id);
         List<DadosListagemApartamento> listagemDto = apartamentos.stream().map(apartamento ->
                 new DadosListagemApartamento(apartamento.getId(),
                         apartamento.getNumero(),

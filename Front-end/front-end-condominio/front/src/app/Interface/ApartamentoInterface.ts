@@ -4,5 +4,5 @@ export interface Apartamento{
   unidadeConsumidora: number,
   descricao:string,
   valor:number,
-  disponivel: boolean
-}
+  idCondominio:number,
+  disponivel?: boolean}

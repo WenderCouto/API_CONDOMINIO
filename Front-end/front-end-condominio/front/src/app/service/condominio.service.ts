@@ -22,4 +22,6 @@ export class CondominioService {
   listar(): Observable<Page<Condominio>> {
     return this.http.get<Page<Condominio>>(this.apiUrl);
   }
+
+
 }

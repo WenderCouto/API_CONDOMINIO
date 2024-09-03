@@ -5,5 +5,5 @@ import com.condominio.API.Condominio.Domain.Entity.Endereco.Endereco;
 
 import java.util.List;
 
-public record DadosListagemCondominio(String nome, Endereco endereco, List<DadosListagemApartamento> apartamentos) {
+public record DadosListagemCondominio(Long id, String nome, Endereco endereco, List<DadosListagemApartamento> apartamentos) {
 }

@@ -1,1 +1,40 @@
-<p>listar-apartamento works!</p>
+<div style="margin: 50px;">
+<mat-table [dataSource]="listaApartamentos" class="mat-elevation-z8">
+
+  <!-- Numero Column -->
+  <ng-container matColumnDef="numero">
+    <mat-header-cell *matHeaderCellDef> Número </mat-header-cell>
+    <mat-cell *matCellDef="let apartamento"> {{ apartamento.numero }} </mat-cell>
+  </ng-container>
+
+  <!-- Unidade Consumidora Column -->
+  <ng-container matColumnDef="unidadeConsumidora">
+    <mat-header-cell *matHeaderCellDef> Unidade Consumidora </mat-header-cell>
+    <mat-cell *matCellDef="let apartamento"> {{ apartamento.unidadeConsumidora }} </mat-cell>
+  </ng-container>
+
+  <!-- Descrição Column -->
+  <ng-container matColumnDef="descricao">
+    <mat-header-cell *matHeaderCellDef> Descrição </mat-header-cell>
+    <mat-cell *matCellDef="let apartamento"> {{ apartamento.descricao }} </mat-cell>
+  </ng-container>
+
+  <!-- Disponivel Column -->
+  <ng-container matColumnDef="disponivel">
+    <mat-header-cell *matHeaderCellDef> Disponível </mat-header-cell>
+    <mat-cell *matCellDef="let apartamento"> {{ apartamento.disponivel ? 'Sim' : 'Não' }} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="valor">
+    <mat-header-cell *matHeaderCellDef> Valor </mat-header-cell>
+    <mat-cell *matCellDef="let apartamento"> {{ apartamento.valor | currency:'BRL'}} </mat-cell>
+  </ng-container>
+
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+</mat-table>
+
+<button mat-flat-button color="primary" style="margin-top: 20px;" (click)="criarApartamento()">Criar Apartamento</button>
+</div>
