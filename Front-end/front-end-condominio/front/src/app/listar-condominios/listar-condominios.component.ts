@@ -11,6 +11,8 @@ import { Router } from '@angular/router';
 export class ListarCondominiosComponent implements OnInit {
   listaCondominio: Condominio[] = [];
 
+  displayedColumns: string[] = ['nome', 'cidade', 'estado', 'rua', 'actions'];
+
   constructor(private service: CondominioService, private router: Router) {}
 
   ngOnInit(): void {
@@ -22,5 +24,9 @@ export class ListarCondominiosComponent implements OnInit {
   listarApartamentos(condominioId: number): void {
     this.router.navigate([`/apartamentos/${condominioId}`]);
     //alert("ma oe")
+  }
+
+  criarCondominio(){
+    this.router.navigate(['/criarCondominio'])
   }
 }

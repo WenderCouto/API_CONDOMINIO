@@ -38,4 +38,8 @@ export class CriarApartamentoComponent implements OnInit {
       this.router.navigate([`/apartamentos/${this.idCondominio}`]);
     });
   }
+
+  voltar(){
+    this.router.navigate([`/apartamentos/${this.idCondominio}`]);
+  }
 }

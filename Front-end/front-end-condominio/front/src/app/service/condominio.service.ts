@@ -23,5 +23,8 @@ export class CondominioService {
     return this.http.get<Page<Condominio>>(this.apiUrl);
   }
 
+  criar(condomninio: Condominio): Observable<Condominio>{
+    return this.http.post<Condominio>(this.apiUrl, condomninio)
+  }
 
 }

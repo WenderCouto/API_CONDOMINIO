@@ -35,4 +35,8 @@ export class ListarApartamentoComponent implements OnInit {
   criarApartamento(): void {
     this.router.navigate([`/criarApartamento/${this.id}`]);
   }
+
+  voltar(){
+    this.router.navigate(['/'])
+  }
 }

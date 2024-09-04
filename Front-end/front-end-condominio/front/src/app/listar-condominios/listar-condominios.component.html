@@ -1,20 +1,45 @@
-<table class="styled-table">
-    <thead>
-        <tr>
-            <th>Nome Condominio</th>
-            <th>Cidade</th>
-            <th>Estado</th>
-            <th>Rua</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let condominio of listaCondominio">
-            <td>{{ condominio.nome }}</td>
-            <td>{{ condominio.endereco.cidade }}</td>
-            <td>{{ condominio.endereco.estado }}</td>
-            <td>{{ condominio.endereco.rua }}</td>
-            <td><button (click)="listarApartamentos(condominio.id)">aperta</button></td>
-        </tr>
-    </tbody>
-</table>
+<div style="margin: 50px;">
+<mat-table [dataSource]="listaCondominio" class="mat-elevation-z8">
+
+  <!-- Nome Condominio Column -->
+  <ng-container matColumnDef="nome">
+    <mat-header-cell *matHeaderCellDef> Nome Condominio </mat-header-cell>
+    <mat-cell *matCellDef="let condominio"> {{ condominio.nome }} </mat-cell>
+  </ng-container>
+
+  <!-- Cidade Column -->
+  <ng-container matColumnDef="cidade">
+    <mat-header-cell *matHeaderCellDef> Cidade </mat-header-cell>
+    <mat-cell *matCellDef="let condominio"> {{ condominio.endereco.cidade }} </mat-cell>
+  </ng-container>
+
+  <!-- Estado Column -->
+  <ng-container matColumnDef="estado">
+    <mat-header-cell *matHeaderCellDef> Estado </mat-header-cell>
+    <mat-cell *matCellDef="let condominio"> {{ condominio.endereco.estado }} </mat-cell>
+  </ng-container>
+
+  <!-- Rua Column -->
+  <ng-container matColumnDef="rua">
+    <mat-header-cell *matHeaderCellDef> Rua </mat-header-cell>
+    <mat-cell *matCellDef="let condominio"> {{ condominio.endereco.rua }} </mat-cell>
+  </ng-container>
+
+  <!-- Button Column -->
+  <ng-container matColumnDef="actions">
+    <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+    <mat-cell *matCellDef="let condominio">
+      <button mat-button (click)="listarApartamentos(condominio.id)">Listar Apartamentos</button>
+    </mat-cell>
+  </ng-container>
+
+  <!-- Header and Row Declarations -->
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+</mat-table>
+
+<div style="display: flex; justify-content: space-between; width: 200px; margin-top: 20px;">
+    <button mat-flat-button color="primary" style="margin-right: 20px;" (click)="criarCondominio()">Criar Condominio</button>
+  </div>
+</div>
