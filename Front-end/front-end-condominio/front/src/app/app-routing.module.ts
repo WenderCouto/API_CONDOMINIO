@@ -4,29 +4,35 @@ import { ListarCondominiosComponent } from './listar-condominios/listar-condomin
 import { ListarApartamentoComponent } from './listar-apartamento/listar-apartamento.component';
 import { CriarApartamentoComponent } from './criar-apartamento/criar-apartamento.component';
 import { CriarCondominioComponent } from './criar-condominio/criar-condominio.component';
+import { EditarCondominioComponent } from './editar-condominio/editar-condominio.component';
 
 const routes: Routes = [
   {
     path: '',
     redirectTo: 'listarCondominio',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
-    path:'listarCondominio',
-    component: ListarCondominiosComponent
+    path: 'listarCondominio',
+    component: ListarCondominiosComponent,
   },
   {
     path: 'apartamentos/:id',
-    component: ListarApartamentoComponent
+    component: ListarApartamentoComponent,
   },
   {
-    path:'criarApartamento/:id',
-    component: CriarApartamentoComponent
+    path: 'criarApartamento/:id',
+    component: CriarApartamentoComponent,
   },
   {
     path: 'criarCondominio',
-    component: CriarCondominioComponent
-  }
+    component: CriarCondominioComponent,
+  },
+  {
+    path: 'editarCondominio/:id',
+    component: EditarCondominioComponent
+
+  },
 ];
 
 @NgModule({

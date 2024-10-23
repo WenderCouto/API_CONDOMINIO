@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class ListarCondominiosComponent implements OnInit {
   listaCondominio: Condominio[] = [];
 
-  displayedColumns: string[] = ['nome', 'cidade', 'estado', 'rua', 'actions'];
+  displayedColumns: string[] = ['nome', 'cidade', 'estado', 'rua', 'listar', 'editar'];
 
   constructor(private service: CondominioService, private router: Router) {}
 
@@ -29,4 +29,10 @@ export class ListarCondominiosComponent implements OnInit {
   criarCondominio(){
     this.router.navigate(['/criarCondominio'])
   }
+
+  editarCondominio(CondominioId: number):void{
+    this.router.navigate([`/editarCondominio/${CondominioId}`]);
+  }
+
+
 }

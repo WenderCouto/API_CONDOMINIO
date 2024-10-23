@@ -26,10 +26,19 @@
   </ng-container>
 
   <!-- Button Column -->
-  <ng-container matColumnDef="actions">
-    <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+  <ng-container matColumnDef="listar">
+    <mat-header-cell *matHeaderCellDef> Listar </mat-header-cell>
     <mat-cell *matCellDef="let condominio">
       <button mat-button (click)="listarApartamentos(condominio.id)">Listar Apartamentos</button>
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="editar">
+    <mat-header-cell  *matHeaderCellDef> Editar </mat-header-cell>
+    <mat-cell *matCellDef="let condominio">
+       <button mat-icon-button (click)="editarCondominio(condominio.id)">
+        <mat-icon>edit</mat-icon>
+      </button>
     </mat-cell>
   </ng-container>
 

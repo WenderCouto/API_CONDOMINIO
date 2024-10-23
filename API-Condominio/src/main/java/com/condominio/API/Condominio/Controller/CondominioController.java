@@ -4,6 +4,8 @@ import com.condominio.API.Condominio.Domain.Entity.Apartamento.DadosListagemApar
 import com.condominio.API.Condominio.Domain.Entity.Condominio.Condominio;
 import com.condominio.API.Condominio.Domain.Entity.Condominio.DadosCadastroCondominio;
 import com.condominio.API.Condominio.Domain.Entity.Condominio.DadosListagemCondominio;
+import com.condominio.API.Condominio.Domain.Entity.Condominio.DadosListagemCondominioSemApartamentos;
+import com.condominio.API.Condominio.Domain.Entity.Endereco.Endereco;
 import com.condominio.API.Condominio.Domain.Repository.CondominioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -53,6 +55,22 @@ public class CondominioController {
     return ResponseEntity.ok(dtoPage);
     }
 
+    @PutMapping("{id}")
+    @Transactional
+    public ResponseEntity<Condominio> update( @PathVariable Long id ,@RequestBody DadosCadastroCondominio dados){
+        var condominio = repository.getReferenceById(id);
+        condominio.setNome(dados.nome());
+        condominio.setEndereco(new Endereco(dados.endereco()));
+        repository.save(condominio);
+        return ResponseEntity.ok().body(condominio);
+    }
 
+    @GetMapping("/{id}")
+    @Transactional
+    public ResponseEntity buscarPorId(@PathVariable Long id){
+        var condominio = repository.getReferenceById(id);
+        var listagemDto = new DadosListagemCondominioSemApartamentos(condominio);
+        return ResponseEntity.ok(new DadosListagemCondominioSemApartamentos(condominio));
+    }
 
 }

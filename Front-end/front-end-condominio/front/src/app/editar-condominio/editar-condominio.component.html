@@ -1,0 +1,54 @@
+<div style="display: flex; justify-content: center;">
+  <div style="width: 600px;">
+
+    <form >
+      <mat-card style="margin: 20px;">
+        <mat-card-header>
+          <h2>Editar Condomínio</h2>
+        </mat-card-header>
+        <mat-card-content style="display: flex; flex-direction: column;">
+
+          <mat-form-field>
+            <mat-label>Nome do Condomínio</mat-label>
+            <input matInput placeholder="Nome do Condomínio" formControlName="nome">
+          </mat-form-field>
+
+          <h3>Endereço</h3>
+
+          <div formGroupName="endereco" style="display: flex; flex-direction: column;">
+            <mat-form-field>
+              <mat-label>Rua</mat-label>
+              <input matInput placeholder="Nome da Rua" formControlName="rua">
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label>Cidade</mat-label>
+              <input matInput placeholder="Nome da Cidade" formControlName="cidade">
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label>Estado</mat-label>
+              <input matInput placeholder="Nome do Estado" formControlName="estado">
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label>CEP</mat-label>
+              <input matInput placeholder="Número do CEP" formControlName="cep">
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label>País</mat-label>
+              <input matInput placeholder="Informe o país" formControlName="pais">
+            </mat-form-field>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; width: 200px;">
+            <button mat-flat-button color="primary" >Enviar</button>
+            <button mat-flat-button color="warn">Cancelar</button>
+          </div>
+
+        </mat-card-content>
+      </mat-card>
+    </form>
+  </div>
+</div>

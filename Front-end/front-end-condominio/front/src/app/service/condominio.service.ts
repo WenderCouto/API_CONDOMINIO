@@ -27,4 +27,9 @@ export class CondominioService {
     return this.http.post<Condominio>(this.apiUrl, condomninio)
   }
 
+  buscarPorId(condominioId: number): Observable<Condominio>{
+    return this.http.get<Condominio>(`${this.apiUrl}/${condominioId}`);
+  }
+
+
 }

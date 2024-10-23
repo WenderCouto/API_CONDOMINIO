@@ -21,6 +21,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CriarCondominioComponent } from './criar-condominio/criar-condominio.component';
+import { EditarCondominioComponent } from './editar-condominio/editar-condominio.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { CriarCondominioComponent } from './criar-condominio/criar-condominio.co
     ListarApartamentoComponent,
     CriarApartamentoComponent,
     CriarCondominioComponent,
+    EditarCondominioComponent,
   ],
   imports: [
     BrowserModule,
