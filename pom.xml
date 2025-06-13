@@ -1,0 +1,199 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.condominio</groupId> <!-- Domínio fictício -->
+    <artifactId>app-condominio</artifactId>
+    <version>0.0.0.1-SNAPSHOT</version> <!-- Costumo usar 4 pontos para versionamento a longo prazo -->
+    <packaging>pom</packaging>
+
+    <name>API-Condominio</name>
+    <description>backend workspace for modules</description>
+
+    <modules>
+        <module>backend</module>
+        <!-- Poderia ser backend/módulo-tal mas para deixar explicito deixo assim -->
+    </modules>
+
+    <properties>
+        <java.version>17</java.version>
+        <!-- Aplicacao -->
+        <spring.boot.version>3.2.0</spring.boot.version>
+        <jakarta.validation.version>3.1.1</jakarta.validation.version>
+        <postgres.sql.version>42.7.7</postgres.sql.version>
+        <lombok.version>1.18.38</lombok.version>
+
+        <!-- Security -->
+        <auth0.version>4.5.0</auth0.version>
+
+        <!-- Testes: -->
+        <datafaker.version>2.4.3</datafaker.version>
+        <!-- Junit sendo versionado automaticamente pelo spring entao aqui omitido-->
+        <mockito.jupiter.version>5.18.0</mockito.jupiter.version>
+
+        <!-- Experimental -->
+        <grpc.version>1.72.0</grpc.version>
+
+        <!-- Plugins: -->
+        <maven.compiler.plugin.version>3.11.0</maven.compiler.plugin.version>
+        <protobuf.plugin.version>0.6.1</protobuf.plugin.version>
+        <os.maven.plugin.version>1.7.0</os.maven.plugin.version>
+        <google.maven.replacer>1.5.3</google.maven.replacer>
+        <build.helper.maven>3.4.0</build.helper.maven>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- Dependencias externas para aplicacao com a versao -->
+            <!-- Spring Boot Dependencies -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- Jakarta Data Validation -->
+            <dependency>
+                <groupId>jakarta.validation</groupId>
+                <artifactId>jakarta.validation-api</artifactId>
+                <version>${jakarta.validation.version}</version>
+            </dependency>
+
+            <!-- Postgres SQL - banco de dados -->
+            <dependency>
+                <groupId>org.postgresql</groupId>
+                <artifactId>postgresql</artifactId>
+                <version>${postgres.sql.version}</version>
+            </dependency>
+
+            <!-- Lombok -->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+
+            <!-- Security -->
+            <!-- JWT auth0 -->
+            <dependency>
+                <groupId>com.auth0</groupId>
+                <artifactId>java-jwt</artifactId>
+                <version>${auth0.version}</version>
+            </dependency>
+
+            <!-- Testes: -->
+            <!-- Junit 5 via spring -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <version>${spring.boot.version}</version> <!-- Deixar o spring lidar com isso sozinho -->
+                <scope>test</scope>
+            </dependency>
+
+            <!-- Mockito jupiter -->
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-junit-jupiter</artifactId>
+                <version>${mockito.jupiter.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <!-- DataFaker - Versao moderna da antiga lib Faker -->
+            <dependency>
+                <groupId>net.datafaker</groupId>
+                <artifactId>datafaker</artifactId>
+                <version>${datafaker.version}</version>
+            </dependency>
+
+            <!-- Experimental -->
+            <!-- gRPC -->
+            <dependency>
+                <groupId>io.grpc</groupId>
+                <artifactId>grpc-netty-shaded</artifactId>
+                <version>${grpc.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.grpc</groupId>
+                <artifactId>grpc-protobuf</artifactId>
+                <version>${grpc.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.grpc</groupId>
+                <artifactId>grpc-stub</artifactId>
+                <version>${grpc.version}</version>
+            </dependency>
+
+            <!-- Protobuf -->
+            <dependency>
+                <groupId>com.google.protobuf</groupId>
+                <artifactId>protobuf-java</artifactId>
+                <version>${protobuf.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>net.devh</groupId>
+                <artifactId>grpc-spring-boot-starter</artifactId>
+                <version>3.1.0.RELEASE</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <!-- Plugin Java -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${maven.compiler.plugin.version}</version>
+                    <configuration>
+                        <release>${java.version}</release>
+                    </configuration>
+                </plugin>
+
+                <!-- Spring Boot -->
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${spring.boot.version}</version>
+                </plugin>
+
+                <!-- Protobuf Plugin (para módulos usarem) -->
+                <plugin>
+                    <groupId>org.xolstice.maven.plugins</groupId>
+                    <artifactId>protobuf-maven-plugin</artifactId>
+                    <version>${protobuf.plugin.version}</version>
+                </plugin>
+
+                <!-- OS Maven Plugin (para suportar multiplataforma) -->
+                <plugin>
+                    <groupId>kr.motd.maven</groupId>
+                    <artifactId>os-maven-plugin</artifactId>
+                    <version>${os.maven.plugin.version}</version>
+                </plugin>
+
+                <!-- Corrgir uso de annotation no proto -->
+                <plugin>
+                    <groupId>com.google.code.maven-replacer-plugin</groupId>
+                    <artifactId>replacer</artifactId>
+                    <version>${google.maven.replacer}</version>
+                </plugin>
+
+                <!-- Marcar como source diretamente após gerar os stubs -->
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>build-helper-maven-plugin</artifactId>
+                    <version>${build.helper.maven}</version>
+                </plugin>
+
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>

@@ -1,0 +1,1 @@
+Mais código neste caso vai se traduzir em menor acoplamento
