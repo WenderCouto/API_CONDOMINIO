@@ -1,0 +1,5 @@
+syntax = "proto3";
+
+message CreateContractRequest { // Exemplo por enquanto
+  string notes = 1;
+}
