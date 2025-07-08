@@ -2,8 +2,7 @@ package com.condominio.app.infra.property.executor;
 
 import com.condominio.app.core.model.Property;
 import com.condominio.app.core.port.PropertyRepository;
-import com.condominio.app.core.usecase.property.GetPropertyByIdUseCase;
-import lombok.RequiredArgsConstructor;
+import com.condominio.app.core.usecase.property.GetPropertyUseCase;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -17,10 +16,13 @@ import java.util.UUID;
  */
 
 @Service
-@RequiredArgsConstructor
-public class GetPropertyByIdUseCaseAdapter implements GetPropertyByIdUseCase {
+public class GetPropertyUseCaseAdapter implements GetPropertyUseCase {
 
     private final PropertyRepository propertyRepository;
+
+    public GetPropertyUseCaseAdapter(PropertyRepository propertyRepository) {
+        this.propertyRepository = propertyRepository;
+    }
 
     @Override
     public Optional<Property> execute(UUID id) {

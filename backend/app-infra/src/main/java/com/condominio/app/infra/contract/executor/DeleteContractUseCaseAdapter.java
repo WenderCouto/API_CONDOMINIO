@@ -2,7 +2,6 @@ package com.condominio.app.infra.contract.executor;
 
 import com.condominio.app.core.port.ContractRepository;
 import com.condominio.app.core.usecase.contract.DeleteContractUseCase;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
@@ -15,10 +14,13 @@ import java.util.UUID;
  */
 
 @Service
-@RequiredArgsConstructor
 public class DeleteContractUseCaseAdapter implements DeleteContractUseCase {
 
     private final ContractRepository contractRepository;
+
+    public DeleteContractUseCaseAdapter(ContractRepository contractRepository) {
+        this.contractRepository = contractRepository;
+    }
 
     @Override
     public void execute(UUID id) {

@@ -12,6 +12,6 @@ import java.util.UUID;
  * @since 0.0.0.1-SNAPSHOT
  */
 
-public interface GetPersonByIdUseCase {
+public interface GetPersonUseCase {
     Optional<Person> execute(UUID personId);
 }

@@ -3,7 +3,6 @@ package com.condominio.app.infra.property.executor;
 import com.condominio.app.core.model.Property;
 import com.condominio.app.core.port.PropertyRepository;
 import com.condominio.app.core.usecase.property.UpdatePropertyUseCase;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
@@ -16,10 +15,13 @@ import java.util.UUID;
  */
 
 @Service
-@RequiredArgsConstructor
 public class UpdatePropertyUseCaseAdapter implements UpdatePropertyUseCase {
 
     private final PropertyRepository propertyRepository;
+
+    public UpdatePropertyUseCaseAdapter(PropertyRepository propertyRepository) {
+        this.propertyRepository = propertyRepository;
+    }
 
     @Override
     public Property execute(UUID id, Property property) {

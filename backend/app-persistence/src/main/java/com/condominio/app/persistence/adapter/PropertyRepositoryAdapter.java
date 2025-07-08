@@ -1,4 +1,4 @@
-package com.condominio.app.persistence.adapter.property;
+package com.condominio.app.persistence.adapter;
 
 import com.condominio.app.core.model.Property;
 import com.condominio.app.core.port.PropertyRepository;
@@ -6,7 +6,6 @@ import com.condominio.app.persistence.entity.PropertyEntity;
 import com.condominio.app.persistence.mapper.PropertyEntityMapper;
 import com.condominio.app.persistence.repository.PropertyJpaRepository;
 import jakarta.transaction.Transactional;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -22,11 +21,15 @@ import java.util.stream.Collectors;
  */
 
 @Component
-@RequiredArgsConstructor
 public class PropertyRepositoryAdapter implements PropertyRepository {
 
     private final PropertyJpaRepository jpaRepository;
     private final PropertyEntityMapper mapper;
+
+    public PropertyRepositoryAdapter(PropertyJpaRepository jpaRepository, PropertyEntityMapper mapper) {
+        this.jpaRepository = jpaRepository;
+        this.mapper = mapper;
+    }
 
     @Override
     @Transactional

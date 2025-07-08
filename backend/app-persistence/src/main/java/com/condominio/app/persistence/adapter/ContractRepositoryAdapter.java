@@ -1,4 +1,4 @@
-package com.condominio.app.persistence.adapter.contract;
+package com.condominio.app.persistence.adapter;
 
 import com.condominio.app.core.model.Contract;
 import com.condominio.app.core.model.ContractStatus;
@@ -7,7 +7,6 @@ import com.condominio.app.persistence.entity.ContractEntity;
 import com.condominio.app.persistence.mapper.ContractEntityMapper;
 import com.condominio.app.persistence.repository.ContractJpaRepository;
 import jakarta.transaction.Transactional;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.time.Instant;
@@ -24,11 +23,15 @@ import java.util.stream.Collectors;
  */
 
 @Component
-@RequiredArgsConstructor
 public class ContractRepositoryAdapter implements ContractRepository {
 
     private final ContractJpaRepository jpaRepository;
     private final ContractEntityMapper mapper;
+
+    public ContractRepositoryAdapter(ContractJpaRepository jpaRepository, ContractEntityMapper mapper) {
+        this.jpaRepository = jpaRepository;
+        this.mapper = mapper;
+    }
 
     @Override
     @Transactional

@@ -3,7 +3,6 @@ package com.condominio.app.infra.contract.executor;
 import com.condominio.app.core.model.Contract;
 import com.condominio.app.core.port.ContractRepository;
 import com.condominio.app.core.usecase.contract.CreateContractUseCase;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 /**
@@ -14,10 +13,13 @@ import org.springframework.stereotype.Service;
  */
 
 @Service
-@RequiredArgsConstructor
 public class CreateContractUseCaseAdapter implements CreateContractUseCase {
 
     private final ContractRepository contractRepository;
+
+    public CreateContractUseCaseAdapter(ContractRepository contractRepository) {
+        this.contractRepository = contractRepository;
+    }
 
     @Override
     public Contract execute(Contract contract) {

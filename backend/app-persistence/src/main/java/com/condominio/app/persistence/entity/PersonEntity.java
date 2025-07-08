@@ -5,9 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
@@ -17,12 +15,10 @@ import lombok.Setter;
  * @since 0.0.0.1-SNAPSHOT
  */
 
+@Setter
+@Getter
 @Entity
 @Table(name = "people") // Pessoas
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
 public class PersonEntity extends BaseEntity {
 
     private String name;

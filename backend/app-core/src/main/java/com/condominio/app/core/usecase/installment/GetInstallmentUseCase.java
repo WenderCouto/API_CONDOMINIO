@@ -13,6 +13,6 @@ import java.util.UUID;
  */
 
 
-public interface GetInstallmentByIdUseCase {
+public interface GetInstallmentUseCase {
     Optional<Installment> execute(UUID installmentId);
 }

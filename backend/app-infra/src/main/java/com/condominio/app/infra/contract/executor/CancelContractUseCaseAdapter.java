@@ -3,7 +3,6 @@ package com.condominio.app.infra.contract.executor;
 import com.condominio.app.core.model.Contract;
 import com.condominio.app.core.port.ContractRepository;
 import com.condominio.app.core.usecase.contract.CancelContractUseCase;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
@@ -16,10 +15,13 @@ import java.util.UUID;
  */
 
 @Service
-@RequiredArgsConstructor
 public class CancelContractUseCaseAdapter implements CancelContractUseCase {
 
     private final ContractRepository contractRepository;
+
+    public CancelContractUseCaseAdapter(ContractRepository contractRepository) {
+        this.contractRepository = contractRepository;
+    }
 
     @Override
     public Contract execute(UUID id, String reason) {

@@ -2,8 +2,7 @@ package com.condominio.app.infra.person.executor;
 
 import com.condominio.app.core.model.Person;
 import com.condominio.app.core.port.PersonRepository;
-import com.condominio.app.core.usecase.person.GetPersonByIdUseCase;
-import lombok.RequiredArgsConstructor;
+import com.condominio.app.core.usecase.person.GetPersonUseCase;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -17,10 +16,13 @@ import java.util.UUID;
  */
 
 @Service
-@RequiredArgsConstructor
-public class GetPersonByIdUseCaseAdapter implements GetPersonByIdUseCase {
+public class GetPersonUseCaseAdapter implements GetPersonUseCase {
 
     private final PersonRepository personRepository;
+
+    public GetPersonUseCaseAdapter(PersonRepository personRepository) {
+        this.personRepository = personRepository;
+    }
 
     @Override
     public Optional<Person> execute(UUID id) {

@@ -2,9 +2,7 @@ package com.condominio.app.persistence.entity;
 
 import com.condominio.app.core.model.InstallmentStatus;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
@@ -17,12 +15,10 @@ import java.time.LocalDate;
  * @since 0.0.0.1-SNAPSHOT
  */
 
+@Setter
+@Getter
 @Entity
 @Table(name = "installments")
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
 public class InstallmentEntity extends BaseEntity {
 
     private int number;

@@ -3,7 +3,6 @@ package com.condominio.app.infra.person.executor;
 import com.condominio.app.core.model.Person;
 import com.condominio.app.core.port.PersonRepository;
 import com.condominio.app.core.usecase.person.ListPeopleUseCase;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,10 +15,13 @@ import java.util.List;
  */
 
 @Service
-@RequiredArgsConstructor
 public class ListPeopleUseCaseAdapter implements ListPeopleUseCase {
 
     private final PersonRepository personRepository;
+
+    public ListPeopleUseCaseAdapter(PersonRepository personRepository) {
+        this.personRepository = personRepository;
+    }
 
     @Override
     public List<Person> execute() {

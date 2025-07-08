@@ -1,8 +1,6 @@
 package com.condominio.app.core.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
@@ -16,10 +14,8 @@ import java.util.List;
  * @since 0.0.0.1-SNAPSHOT
  */
 
-@Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Getter
 public class Contract extends BaseModel {
 
     //Id providenciado por BaseModel

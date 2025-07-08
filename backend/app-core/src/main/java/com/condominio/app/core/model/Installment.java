@@ -1,12 +1,9 @@
 package com.condominio.app.core.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
-
 import java.time.LocalDate;
 import java.util.UUID;
 
@@ -17,10 +14,8 @@ import java.util.UUID;
  * @since 0.0.0.1-SNAPSHOT
  */
 
-@Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Getter
 public class Installment extends BaseModel {
     //Id providenciado por BaseModel
     private int number;               // Número da parcela (ex: 1, 2, 3…)

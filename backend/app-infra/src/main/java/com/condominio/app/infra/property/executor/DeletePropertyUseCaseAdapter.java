@@ -2,7 +2,6 @@ package com.condominio.app.infra.property.executor;
 
 import com.condominio.app.core.port.PropertyRepository;
 import com.condominio.app.core.usecase.property.DeletePropertyUseCase;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
@@ -15,10 +14,13 @@ import java.util.UUID;
  */
 
 @Service
-@RequiredArgsConstructor
 public class DeletePropertyUseCaseAdapter implements DeletePropertyUseCase {
 
     private final PropertyRepository propertyRepository;
+
+    public DeletePropertyUseCaseAdapter(PropertyRepository propertyRepository) {
+        this.propertyRepository = propertyRepository;
+    }
 
     @Override
     public void execute(UUID id) {

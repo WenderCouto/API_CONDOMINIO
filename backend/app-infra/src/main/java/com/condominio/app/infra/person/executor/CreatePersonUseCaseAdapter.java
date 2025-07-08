@@ -3,7 +3,6 @@ package com.condominio.app.infra.person.executor;
 import com.condominio.app.core.model.Person;
 import com.condominio.app.core.port.PersonRepository;
 import com.condominio.app.core.usecase.person.CreatePersonUseCase;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 /**
@@ -14,10 +13,13 @@ import org.springframework.stereotype.Service;
  */
 
 @Service
-@RequiredArgsConstructor
 public class CreatePersonUseCaseAdapter implements CreatePersonUseCase {
 
     private final PersonRepository personRepository;
+
+    public CreatePersonUseCaseAdapter(PersonRepository personRepository) {
+        this.personRepository = personRepository;
+    }
 
     @Override
     public Person execute(Person person) {

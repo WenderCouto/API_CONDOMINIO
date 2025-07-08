@@ -3,7 +3,6 @@ package com.condominio.app.infra.property.executor;
 import com.condominio.app.core.model.Property;
 import com.condominio.app.core.port.PropertyRepository;
 import com.condominio.app.core.usecase.property.CreatePropertyUseCase;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 /**
@@ -14,10 +13,13 @@ import org.springframework.stereotype.Service;
  */
 
 @Service
-@RequiredArgsConstructor
 public class CreatePropertyUseCaseAdapter implements CreatePropertyUseCase {
 
     private final PropertyRepository propertyRepository;
+
+    public CreatePropertyUseCaseAdapter(PropertyRepository propertyRepository) {
+        this.propertyRepository = propertyRepository;
+    }
 
     @Override
     public Property execute(Property property) {

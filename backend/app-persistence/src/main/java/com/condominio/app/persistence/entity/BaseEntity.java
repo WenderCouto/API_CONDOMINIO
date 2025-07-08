@@ -4,9 +4,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.Instant;
@@ -19,10 +17,8 @@ import java.util.UUID;
  * @since 0.0.0.1-SNAPSHOT
  */
 
-@Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Getter
 @MappedSuperclass
 public abstract class BaseEntity {
 

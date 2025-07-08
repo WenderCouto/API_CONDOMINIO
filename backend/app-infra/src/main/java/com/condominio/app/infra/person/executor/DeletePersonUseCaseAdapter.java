@@ -2,7 +2,6 @@ package com.condominio.app.infra.person.executor;
 
 import com.condominio.app.core.port.PersonRepository;
 import com.condominio.app.core.usecase.person.DeletePersonUseCase;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
@@ -15,10 +14,13 @@ import java.util.UUID;
  */
 
 @Service
-@RequiredArgsConstructor
 public class DeletePersonUseCaseAdapter implements DeletePersonUseCase {
 
     private final PersonRepository personRepository;
+
+    public DeletePersonUseCaseAdapter(PersonRepository personRepository) {
+        this.personRepository = personRepository;
+    }
 
     @Override
     public void execute(UUID id) {

@@ -12,6 +12,6 @@ import java.util.UUID;
  * @since 0.0.0.1-SNAPSHOT
  */
 
-public interface GetContractByIdUseCase {
+public interface GetContractUseCase {
     Optional<Contract> execute(UUID contractId);
 }

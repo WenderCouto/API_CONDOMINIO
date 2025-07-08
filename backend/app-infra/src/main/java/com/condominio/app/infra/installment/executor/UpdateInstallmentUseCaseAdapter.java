@@ -3,7 +3,6 @@ package com.condominio.app.infra.installment.executor;
 import com.condominio.app.core.model.Installment;
 import com.condominio.app.core.port.InstallmentRepository;
 import com.condominio.app.core.usecase.installment.UpdateInstallmentUseCase;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
@@ -16,10 +15,13 @@ import java.util.UUID;
  */
 
 @Service
-@RequiredArgsConstructor
 public class UpdateInstallmentUseCaseAdapter implements UpdateInstallmentUseCase {
 
     private final InstallmentRepository installmentRepository;
+
+    public UpdateInstallmentUseCaseAdapter(InstallmentRepository installmentRepository) {
+        this.installmentRepository = installmentRepository;
+    }
 
     @Override
     public Installment execute(UUID id, Installment installment) {

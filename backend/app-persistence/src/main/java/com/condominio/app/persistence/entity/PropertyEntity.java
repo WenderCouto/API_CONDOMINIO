@@ -1,10 +1,10 @@
 package com.condominio.app.persistence.entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
@@ -16,12 +16,10 @@ import java.math.BigDecimal;
  * @since 0.0.0.1-SNAPSHOT
  */
 
+@Setter
+@Getter
 @Entity
 @Table(name = "properties")
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
 public class PropertyEntity extends BaseEntity {
     private String title;
     private String description;
@@ -44,4 +42,8 @@ public class PropertyEntity extends BaseEntity {
 
     private String registrationNumber;
     private String notes;
+
+    @ManyToOne
+    @JoinColumn(name = "condominium_id")
+    private CondominiumEntity condominium;
 }

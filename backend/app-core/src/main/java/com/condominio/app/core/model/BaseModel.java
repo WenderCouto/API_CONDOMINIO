@@ -1,8 +1,6 @@
 package com.condominio.app.core.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.Instant;
@@ -15,10 +13,8 @@ import java.util.UUID;
  * @since 0.0.0.1-SNAPSHOT
  */
 
-@Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Getter
 public abstract class BaseModel {
 
     private UUID id;

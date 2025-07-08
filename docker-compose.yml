@@ -1,0 +1,37 @@
+services:
+  db-postgres:
+    image: postgres:16
+    container_name: db-condominio
+    environment:
+      POSTGRES_DB: ${DB_POSTGRES}
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  app:
+      build: .
+      container_name: app-condominio-web
+      image: app-condominio
+      environment:
+        #Os .properties vão precisar das variaveis de ambiente
+        POSTGRES_DB: ${DB_POSTGRES}
+        POSTGRES_USER: ${DB_USERNAME}
+        POSTGRES_PASSWORD: ${DB_PASSWORD}
+        #Credenciais do primeiro usuário que vamos criar
+        JWT_PASSWORD: ${JWT_PASSWORD}
+        INIT_USER_LOGIN: ${INIT_USER_LOGIN}
+        INIT_USER_PASSWORD: ${INIT_USER_PASSWORD}
+        #Spring profile e datasource
+        SPRING_PROFILES_ACTIVE: dev
+        SPRING_DATASOURCE_URL: jdbc:postgresql://db-postgres:5432/${DB_POSTGRES}
+      ports:
+        - "8080:8080"
+      depends_on:
+        - db-postgres
+#      volumes:
+#        - ./uploads:/app/uploads  #Para futuras imagens
+
+#Falta o front
+volumes:
+  postgres_data:

@@ -1,8 +1,6 @@
 package com.condominio.app.core.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
@@ -12,10 +10,8 @@ import lombok.Setter;
  * @since 0.0.0.1-SNAPSHOT
  */
 
-@Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Getter
 public class Person extends BaseModel {
     //Id providenciado por BaseModel
     private String name;

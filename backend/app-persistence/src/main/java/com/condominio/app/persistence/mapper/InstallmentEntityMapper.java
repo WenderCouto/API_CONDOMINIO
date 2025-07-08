@@ -3,7 +3,6 @@ package com.condominio.app.persistence.mapper;
 import com.condominio.app.core.model.Installment;
 import com.condominio.app.persistence.entity.ContractEntity;
 import com.condominio.app.persistence.entity.InstallmentEntity;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 /**
@@ -14,10 +13,13 @@ import org.springframework.stereotype.Component;
  */
 
 @Component
-@RequiredArgsConstructor
 public class InstallmentEntityMapper {
 
     private final PersonEntityMapper personMapper;
+
+    public InstallmentEntityMapper(PersonEntityMapper personMapper) {
+        this.personMapper = personMapper;
+    }
 
     public InstallmentEntity toEntity(Installment model) {
         InstallmentEntity entity = new InstallmentEntity();

@@ -1,12 +1,9 @@
 package com.condominio.app.core.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
-import java.util.UUID;
 
 /**
  * Property class.
@@ -15,10 +12,8 @@ import java.util.UUID;
  * @since 0.0.0.1-SNAPSHOT
  */
 
-@Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Getter
 public class Property extends BaseModel {
     //Id providenciado por BaseModel
     private String title;        // Nome de referência (Ex: "Apto 302 - Ed. Solar")

@@ -12,6 +12,6 @@ import java.util.UUID;
  * @since 0.0.0.1-SNAPSHOT
  */
 
-public interface GetPropertyByIdUseCase {
+public interface GetPropertyUseCase {
     Optional<Property> execute(UUID propertyId);
 }

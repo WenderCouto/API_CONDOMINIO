@@ -2,8 +2,6 @@ package com.condominio.app.persistence.mapper;
 
 import com.condominio.app.core.model.Contract;
 import com.condominio.app.persistence.entity.ContractEntity;
-import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.Collections;
@@ -16,12 +14,21 @@ import java.util.Collections;
  */
 
 @Component
-@RequiredArgsConstructor
 public class ContractEntityMapper {
 
     private final PersonEntityMapper personMapper;
     private final PropertyEntityMapper propertyMapper;
     private final InstallmentEntityMapper installmentMapper;
+
+    public ContractEntityMapper(
+            PersonEntityMapper personMapper,
+            PropertyEntityMapper propertyMapper,
+            InstallmentEntityMapper installmentMapper
+    ) {
+        this.personMapper = personMapper;
+        this.propertyMapper = propertyMapper;
+        this.installmentMapper = installmentMapper;
+    }
 
     public ContractEntity toEntity(Contract model) {
         ContractEntity entity = new ContractEntity();

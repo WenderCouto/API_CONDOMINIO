@@ -2,7 +2,6 @@ package com.condominio.app.infra.installment.executor;
 
 import com.condominio.app.core.port.InstallmentRepository;
 import com.condominio.app.core.usecase.installment.DeleteInstallmentUseCase;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
@@ -15,10 +14,13 @@ import java.util.UUID;
  */
 
 @Service
-@RequiredArgsConstructor
 public class DeleteInstallmentUseCaseAdapter implements DeleteInstallmentUseCase {
 
     private final InstallmentRepository installmentRepository;
+
+    public DeleteInstallmentUseCaseAdapter(InstallmentRepository installmentRepository) {
+        this.installmentRepository = installmentRepository;
+    }
 
     @Override
     public void execute(UUID id) {

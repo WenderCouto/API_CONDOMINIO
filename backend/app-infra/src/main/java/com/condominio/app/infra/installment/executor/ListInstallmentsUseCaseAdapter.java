@@ -3,7 +3,6 @@ package com.condominio.app.infra.installment.executor;
 import com.condominio.app.core.model.Installment;
 import com.condominio.app.core.port.InstallmentRepository;
 import com.condominio.app.core.usecase.installment.ListInstallmentsUseCase;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,10 +15,13 @@ import java.util.List;
  */
 
 @Service
-@RequiredArgsConstructor
 public class ListInstallmentsUseCaseAdapter implements ListInstallmentsUseCase {
 
     private final InstallmentRepository installmentRepository;
+
+    public ListInstallmentsUseCaseAdapter(InstallmentRepository installmentRepository) {
+        this.installmentRepository = installmentRepository;
+    }
 
     @Override
     public List<Installment> execute() {
